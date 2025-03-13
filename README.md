@@ -1,41 +1,45 @@
-# 202501-aritmetica-morse
+# Warmup - Aritmética Morse
 
-# Programação Avançada
+## Solução
 
-## Ferramentas para Desenvolvimento - Windows
-- [IDE Code::Blocks](https://www.fosshub.com/Code-Blocks.html?dwl=codeblocks-20.03mingw-setup.exe#)
-- [Git](https://github.com/git-for-windows/git/releases/download/v2.48.1.windows.1/Git-2.48.1-64-bit.exe)
+### Estrutura do Projeto
 
-### Instalação e Configuração da Biblioteca MPI - Windows
+- **Sources**: Contém o código-fonte principal, incluindo o arquivo `warmup.c` e a lógica de resolução no `warmup_solver.c`.
+- **Headers**: Contém o arquivo de cabeçalho `warmup_solver.h` com a definição das funções.
+- **02-aritmetica-morse**: Contém o diretório `input/` com arquivos de instâncias numeradas de `instance_1` até `instance_112`.
+- **output**: O arquivo `solution.txt` será gerado aqui com os resultados das expressões.
 
-- Faça o download dos dois instaladores _msmpisdk.msi_ e _msmpisetup.exe_ da biblioteca através do link [Microsoft MPI v10.0](https://www.microsoft.com/en-us/download/details.aspx?id=57467)
-- Para configurar a biblioteca no Code::Blocks, siga o tutorial em vídeo disponível no [YouTube - Installing MPI Library on CodeBlocks](https://www.youtube.com/watch?v=eFKLxnbAhWk) 
+### Como o Programa Funciona
 
-#### Testando a Biblioteca
+O programa lê os arquivos de instâncias do diretório `input/` e processa cada um de acordo com o formato definido. Para cada instância, ele:
 
-- Crie um projeto C no Code::Blocks. Siga o tutorial disponível no [vídeo](https://www.youtube.com/watch?v=OE3VbaqGQWM).
-- Copie o código C disponível no [gist](https://gist.github.com/tnas/cd596149bdc28ec564017387bf90d05c).
-- Cole o código no arquivo `main.c` gerado na criação do projeto C.
-- Compile e execute o código.
+1. Converte os números Morse (como `.` e `-`) para valores inteiros.
+2. Avalia a expressão matemática respeitando a precedência dos operadores.
+3. O resultado de cada instância é gravado no arquivo `solution.txt`, localizado no diretório `output/`.
 
-#### Executando Múltiplos Processos
+### Funções
 
-- Acesse o diretório `bin\Debug` do projeto pela linha de comando.
-- Execute o comando `mpiexec -n 4 <NOME DO ARQUIVO .EXE>`. Serão executados 4 processos do programa.
-    - Altere o valor do parâmetro `-n` para a quantidade de processos que queira executar.
+- **morse_to_value**: Mapeia caracteres Morse (., -, :, =) para valores inteiros.
+- **parse_morse_number**: Converte uma sequência Morse em um número inteiro.
+- **evaluate_expression**: Avalia a expressão matemática com números e operadores.
+- **solve_warmup**: Processa a expressão de um arquivo de entrada e escreve o resultado.
+- **check_warmup_solution**: Verifica se a solução está correta.
+- **main**: Lê os arquivos do diretório, chama as funções para processar e gerar a solução.
 
-### Configuração da Biblioteca OpenMP no Code::Blocks - Windows
+### Como Executar
 
-- Abra a janela de configuração em `Settings > Compiler... > Linker settings`
-- Acione o botão "Add"
-- Localize a biblioteca no caminho `C:\Program Files\CodeBlocks\MinGW\lib\gcc\x86_64-w64-mingw32\8.1.0\libgomp.dll.a`
+#### Configuração do Ambiente
 
-## Warm-Up
+1. Verifique se os arquivos de instância estão no diretório `02-aritmetica-morse/input/`, com nomes de `instance_1` até `instance_112`.
+2. O diretório `output/` será usado para salvar o arquivo `solution.txt`.
 
-Para compilar o código:
+#### Compilação e Execução
 
-`gcc -Wall warmup.c solver/warmup_solver.c -o warmup`
+1. Abra o projeto no seu IDE (ex: Code::Blocks).
+2. Compile o código.
+3. Execute o programa, que processará todos os arquivos de `instance_1` até `instance_112`, gerando o arquivo `solution.txt` no diretório de saída.
 
-Para executar o código:
+### Saída
 
-`./warmup`
+- O arquivo `solution.txt` conterá os resultados das expressões processadas.
+- O console exibirá o total de sucessos e falhas.
