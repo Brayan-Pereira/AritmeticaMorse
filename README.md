@@ -1,5 +1,11 @@
 # Warmup - Aritmética Morse
 
+## Integrantes do Grupo
+
+- **Brayan Pereira** - RA: 2023100832
+- **Bernardo Rodrigues** - RA: 2023100357
+- **João Gabriel** - RA: 2023100603
+
 ## Solução
 
 ### Estrutura do Projeto
@@ -31,15 +37,4 @@ O programa lê os arquivos de instâncias do diretório `input/` e processa cada
 #### Configuração do Ambiente
 
 1. Verifique se os arquivos de instância estão no diretório `02-aritmetica-morse/input/`, com nomes de `instance_1` até `instance_112`.
-2. O diretório `output/` será usado para salvar o arquivo `solution.txt`.
-
-#### Compilação e Execução
-
-1. Abra o projeto no seu IDE (ex: Code::Blocks).
-2. Compile o código.
-3. Execute o programa, que processará todos os arquivos de `instance_1` até `instance_112`, gerando o arquivo `solution.txt` no diretório de saída.
-
-### Saída
-
-- O arquivo `solution.txt` conterá os resultados das expressões processadas.
-- O console exibirá o total de sucessos e falhas.
+2. O diretório
